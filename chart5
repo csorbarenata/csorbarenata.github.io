@@ -1,0 +1,28 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Fizetési trendek évek szerint",
+  "data": {
+    "url": "https://raw.githubusercontent.com/csorbarenata/csorbarenata.github.io/main/data_science_salaries.csv",
+    "format": {"type": "csv"}
+  },
+  "transform": [
+    {"filter": {"field": "job_title", "oneOf": ["Data Scientist", "Data Analyst", "Machine Learning Engineer", "Software Engineer", "Business Analyst"]}},
+    {"aggregate": [{"op": "mean", "field": "salary_in_usd", "as": "average_salary"}], "groupby": ["work_year", "company_location"]}
+  ],
+  "mark": "rect",
+  "encoding": {
+    "y": {"field": "work_year", "type": "temporal", "title": "Év"},
+    "x": {"field": "company_location", "type": "nominal", "title": "Vállalat helyszíne"},  // Módosítva company_location-re
+    "color": {"field": "average_salary", "type": "quantitative", "title": "Átlagos fizetés (USD)"},
+    "tooltip": [
+      {"field": "work_year", "type": "temporal", "title": "Év"},
+      {"field": "company_location", "type": "nominal", "title": "Vállalat helyszíne"},
+      {"field": "average_salary", "type": "quantitative", "title": "Átlagos fizetés (USD)"}
+    ]
+  },
+  "config": {
+    "view": {"stroke": "transparent"},
+    "axis": {"labelFontSize": 12, "titleFontSize": 14},
+    "title": {"fontSize": 16, "anchor": "middle", "offset": 10}
+  }
+}
