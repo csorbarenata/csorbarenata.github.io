@@ -12,7 +12,7 @@
   "mark": "rect",
   "encoding": {
     "y": {"field": "work_year", "type": "temporal", "title": "Év"},
-    "x": {"field": "company_location", "type": "nominal", "title": "Vállalat helyszíne"},  // Módosítva company_location-re
+    "x": {"field": "company_location", "type": "nominal", "title": "Vállalat helyszíne"}, 
     "color": {"field": "average_salary", "type": "quantitative", "title": "Átlagos fizetés (USD)"},
     "tooltip": [
       {"field": "work_year", "type": "temporal", "title": "Év"},
