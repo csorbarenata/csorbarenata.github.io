@@ -1,61 +1,58 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "description": "Éves Fizetési Trendek (2020-2024)",
-    "data": {
-      "url": "https://raw.githubusercontent.com/csorbarenata/csorbarenata.github.io/main/data_science_salaries.csv",
-      "format": {
-        "type": "csv"
-      }
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Éves Fizetési Trendek (2020-2024)",
+  "data": {
+    "url": "https://raw.githubusercontent.com/csorbarenata/csorbarenata.github.io/main/data_science_salaries.csv",
+    "format": {"type": "csv"}
+  },
+  "transform": [
+    {
+      "aggregate": [{"op": "mean", "field": "salary_in_usd", "as": "avg_salary"}],
+      "groupby": ["work_year", "experience_level"]
     },
-    "transform": [
-      {
-        "aggregate": [{"op": "mean", "field": "salary_in_usd", "as": "avg_salary"}],
-        "groupby": ["work_year", "experience_level"]
+    {
+      "filter": "datum.avg_salary < 500000"  
+    }
+  ],
+  "facet": {
+    "column": {
+      "field": "experience_level",
+      "type": "nominal",
+      "title": "Tapasztalati szint"
+    }
+  },
+  "spec": {
+    "mark": "bar",
+    "encoding": {
+      "x": {
+        "field": "work_year",
+        "type": "ordinal",
+        "title": "Év",
+        "axis": {"grid": false}
       },
-      {
-        "filter": "datum.avg_salary < 500000"  
-      }
-    ],
-    "facet": {
-      "column": {
+      "y": {
+        "field": "avg_salary",
+        "type": "quantitative",
+        "title": "Átlagos fizetés (USD)",
+        "axis": {"grid": true}
+      },
+      "color": {
         "field": "experience_level",
         "type": "nominal",
-        "title": "Tapasztalati szint"
-      }
-    },
-    "spec": {
-      "mark": "bar",
-      "encoding": {
-        "x": {
-          "field": "work_year",
-          "type": "ordinal",
-          "title": "Év",
-          "axis": {"grid": false}
-        },
-        "y": {
-          "field": "avg_salary",
-          "type": "quantitative",
-          "title": "Átlagos fizetés (USD)",
-          "axis": {"grid": true}
-        },
-        "color": {
-          "field": "experience_level",
-          "type": "nominal",
-          "title": "Tapasztalati szint",
-          "scale": {"scheme": "category10"}
-        },
-        "tooltip": [
-          {"field": "work_year", "type": "ordinal", "title": "Év"},
-          {"field": "avg_salary", "type": "quantitative", "title": "Átlagos fizetés (USD)"}
-        ]
-      }
-    },
-    "resolve": {
-      "scale": {
-        "x": "shared"
-      }
-    },
-    "width": 200,
-    "height": 300,
-    "title": "Éves Fizetési Trendek (2020-2024)"
-  }
+        "title": "Tapasztalati szint",
+        "scale": {
+          "domain": ["Entry-level", "Mid-level", "Senior-level", "Executive-level"],
+          "range": ["#7fc97f", "#41ab5d", "#00441b", "#1b7837"]
+        }
+      },
+      "tooltip": [
+        {"field": "work_year", "type": "ordinal", "title": "Év"},
+        {"field": "avg_salary", "type": "quantitative", "title": "Átlagos fizetés (USD)"}
+      ]
+    }
+  },
+  "resolve": {"scale": {"x": "shared"}},
+  "width": 200,
+  "height": 300,
+  "title": "Éves Fizetési Trendek (2020-2024)"
+}
