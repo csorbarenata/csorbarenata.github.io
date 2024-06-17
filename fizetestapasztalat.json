@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "A horizontal bar chart showing the count of Netflix entries by Subscription Type.",
+  "description": "Fizetés és tapasztalati szint kapcsolata",
   "data": {
     "url": "https://raw.githubusercontent.com/csorbarenata/csorbarenata.github.io/main/data_science_salaries.csv",
     "format": {
