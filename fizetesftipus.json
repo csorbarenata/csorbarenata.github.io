@@ -7,7 +7,7 @@
       "type": "csv"
     }
   },
- "facet": {
+  "facet": {
     "row": {"field": "job_title", "type": "nominal", "title": "Munkakör"}
   },
   "spec": {
@@ -19,6 +19,7 @@
     }
   },
   "config": {
-    "view": {"stroke": "transparent"}
+    "view": {"stroke": "transparent"},
+    "scroll": {"x": true}
   }
 }
