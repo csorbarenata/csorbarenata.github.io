@@ -1,0 +1,29 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "A horizontal bar chart showing the count of Netflix entries by Subscription Type.",
+  "data": {
+    "url": "https://raw.githubusercontent.com/csorbarenata/csorbarenata.github.io/main/data_science_salaries.csv",
+    "format": {
+      "type": "csv"
+    }
+  },
+ "layer": [
+    {
+      "mark": {"type": "point", "filled": true},
+      "encoding": {
+        "x": {"field": "experience_level", "type": "ordinal", "title": "Tapasztalati Szint"},
+        "y": {"field": "salary_in_usd", "type": "quantitative", "title": "Fizetés (USD)"}
+      }
+    },
+    {
+      "mark": {"type": "line", "interpolate": "basis"},
+      "encoding": {
+        "x": {"field": "experience_level", "type": "ordinal"},
+        "y": {"aggregate": "average", "field": "salary_in_usd", "type": "quantitative"}
+      }
+    }
+  ],
+  "config": {
+    "view": {"stroke": "transparent"}
+  }
+}
