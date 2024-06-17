@@ -1,34 +1,24 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "A horizontal bar chart showing the count of Netflix entries by Subscription Type.",
+  "description": "Átlagos fizetések bemutatása munkamodell szerint, csoportosítva tapasztalati szint alapján.",
   "data": {
     "url": "https://raw.githubusercontent.com/csorbarenata/csorbarenata.github.io/main/data_science_salaries.csv",
     "format": {"type": "csv"}
   },
   "facet": {
-    "row": {"field": "job_title", "type": "nominal", "title": "Munkakör"}
+    "column": {"field": "experience_level", "type": "nominal", "title": "Tapasztalati Szint"}
   },
   "spec": {
-    "width": 300,
-    "height": 400,
+    "width": 200,
+    "height": 150,
     "mark": "bar",
     "encoding": {
-      "x": {
-        "field": "employment_type",
-        "type": "nominal",
-        "title": "Foglalkoztatási Típus"
-      },
-      "y": {
-        "aggregate": "average",
-        "field": "salary_in_usd",
-        "type": "quantitative",
-        "title": "Átlagos Fizetés (USD)"
-      },
-      "color": {
-        "field": "employment_type",
-        "type": "nominal",
-        "title": "Foglalkoztatási Típus"
-      }
+      "x": {"field": "work_models", "type": "nominal", "title": "Munkamodell"},
+      "y": {"aggregate": "average", "field": "salary_in_usd", "type": "quantitative", "title": "Átlagos Fizetés (USD)"},
+      "color": {"field": "work_models", "type": "nominal", "title": "Munkamodell", "scale": {"scheme": "viridis"}}
     }
+  },
+  "config": {
+    "view": {"stroke": "transparent"}
   }
 }
