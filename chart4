@@ -1,0 +1,42 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Átlagos fizetések sávos diagramja a leggyakoribb munkakörök és foglalkoztatási típusok szerint.",
+  "data": {
+    "url": "https://raw.githubusercontent.com/csorbarenata/csorbarenata.github.io/main/data_science_salaries.csv",
+    "format": {"type": "csv"}
+  },
+  "transform": [
+    {"filter": {"field": "job_title", "oneOf": ["Data Scientist", "Data Analyst", "Machine Learning Engineer", "Software Engineer", "Business Analyst"]}}
+  ],
+  "mark": {
+    "type": "bar",
+    "tooltip": true,
+    "strokeWidth": 1.5
+  },
+  "encoding": {
+    "x": {
+      "field": "salary_in_usd",
+      "type": "quantitative",
+      "aggregate": "average",
+      "title": "Átlagos Fizetés (USD)",
+      "axis": {"labelOverlap": "greedy"}
+    },
+    "y": {
+      "field": "job_title",
+      "type": "nominal",
+      "title": "Munkakör",
+      "sort": "-x"
+    },
+    "color": {
+      "field": "employment_type",
+      "type": "nominal",
+      "title": "Foglalkoztatási Típus",
+      "scale": {"domain":["Contract", "Freelance", "Full-time", "Part-time"],"range": ["#98dd9d", "#77c7a5", "#529e87", "#1f6650"]}
+    }
+  },
+  "config": {
+    "view": {"stroke": "transparent"},
+    "axis": {"labelFontSize": 12, "titleFontSize": 14},
+    "title": {"fontSize": 16, "anchor": "middle", "offset": 10}
+  }
+}
