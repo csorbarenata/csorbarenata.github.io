@@ -11,15 +11,13 @@
     "row": {"field": "job_title", "type": "nominal", "title": "Munkakör"}
   },
   "spec": {
+    "width": 300,
+    "height": 400,
     "mark": "bar",
     "encoding": {
       "x": {"field": "employment_type", "type": "nominal", "title": "Foglalkoztatási Típus"},
       "y": {"aggregate": "average", "field": "salary_in_usd", "type": "quantitative", "title": "Átlagos Fizetés (USD)"},
       "color": {"field": "employment_type", "type": "nominal", "title": "Foglalkoztatási Típus"}
     }
-  },
-  "config": {
-    "view": {"stroke": "transparent"},
-    "scroll": {"x": true}
   }
 }
