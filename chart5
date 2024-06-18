@@ -10,6 +10,8 @@
     {"aggregate": [{"op": "mean", "field": "salary_in_usd", "as": "average_salary"}], "groupby": ["work_year", "company_location"]}
   ],
   "mark": "rect",
+  "width": 500,  
+  "height": 200, 
   "encoding": {
     "y": {"field": "work_year", "type": "temporal", "title": "Év"},
     "x": {"field": "company_location", "type": "nominal", "title": "Vállalat helyszíne"}, 
