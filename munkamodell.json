@@ -20,7 +20,7 @@
         "type": "nominal",
         "title": "Munkamodell",
         "scale": {"scheme": "viridis"},
-        "legend": null  // Oldalsó jelmagyarázat eltávolítása
+        "legend": null  
       }
     }
   },
