@@ -9,13 +9,19 @@
     "column": {"field": "experience_level", "type": "nominal", "title": "Tapasztalati Szint"}
   },
   "spec": {
-    "width": 100,
+    "width": 150,
     "height": 150,
     "mark": "bar",
     "encoding": {
       "x": {"field": "work_models", "type": "nominal", "title": "Munkamodell"},
       "y": {"aggregate": "average", "field": "salary_in_usd", "type": "quantitative", "title": "Átlagos Fizetés (USD)"},
-      "color": {"field": "work_models", "type": "nominal", "title": "Munkamodell", "scale": {"scheme": "viridis"}}
+      "color": {
+        "field": "work_models",
+        "type": "nominal",
+        "title": "Munkamodell",
+        "scale": {"scheme": "viridis"},
+        "legend": null  // Oldalsó jelmagyarázat eltávolítása
+      }
     }
   },
   "config": {
