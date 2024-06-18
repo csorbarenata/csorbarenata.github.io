@@ -9,7 +9,7 @@
     "column": {"field": "experience_level", "type": "nominal", "title": "Tapasztalati Szint"}
   },
   "spec": {
-    "width": 150,
+    "width": 100,
     "height": 150,
     "mark": "bar",
     "encoding": {
