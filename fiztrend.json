@@ -44,7 +44,7 @@
           "domain": ["Entry-level", "Mid-level", "Senior-level", "Executive-level"],
           "range": ["#7fc97f", "#41ab5d", "#00441b", "#1b7837"]
         },
-        "legend": null  // Jelmagyarázat eltávolítása
+        "legend": null  
       },
       "tooltip": [
         {"field": "work_year", "type": "ordinal", "title": "Év"},
