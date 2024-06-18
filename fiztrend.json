@@ -11,7 +11,7 @@
       "groupby": ["work_year", "experience_level"]
     },
     {
-      "filter": "datum.avg_salary < 500000"  
+      "filter": "datum.avg_salary < 500000"
     }
   ],
   "facet": {
@@ -43,7 +43,8 @@
         "scale": {
           "domain": ["Entry-level", "Mid-level", "Senior-level", "Executive-level"],
           "range": ["#7fc97f", "#41ab5d", "#00441b", "#1b7837"]
-        }
+        },
+        "legend": null  // Jelmagyarázat eltávolítása
       },
       "tooltip": [
         {"field": "work_year", "type": "ordinal", "title": "Év"},
